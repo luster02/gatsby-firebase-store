@@ -5,9 +5,19 @@ const CartContext = React.createContext()
 export function CartProvider(props) {
     const [cart, setCart] = useState([])
 
+    function addProduct(product) {
+        setCart(older => [...older, product])
+    }
+
+    function removeProduct(product) {
+        setCart(cart.filter(element => element.id !== product.id))
+    }
+
     const value = {
         cart,
-        setCart
+        setCart,
+        addProduct,
+        removeProduct
     }
 
     return <CartContext.Provider  {...props} value={value} />
