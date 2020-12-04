@@ -3,9 +3,12 @@ import "firebase/auth"
 import "firebase/firestore"
 
 import { ProductsProvider } from './src/context/Products.context'
+import { CartProvider } from './src/context/CartContext'
 
 export const wrapRootElement = ({ element }) => (
     <ProductsProvider>
-        {element}
+        <CartProvider>
+            {element}
+        </CartProvider>
     </ProductsProvider>
 )
